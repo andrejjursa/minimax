@@ -16,7 +16,7 @@ Projektové plánovanie
     Riešenie problému na papieri
     Navrhutie základnej architektúry
 
-Zakladne implementačné kroky
+Základne implementačné kroky
 ----------------------------
     Rozdelenie úloh
     Implementácia základných algoritmov pre 3x3 piškvorky
@@ -30,3 +30,9 @@ Zakladne implementačné kroky
 Pokračovanie vo vývoji v zmysle zadania
 ---------------------------------------
     Postup podľa požiadaviek predmetu, dodržiavanie deadlinov
+    
+Rozdelenie úloh
+---------------
+    backend: Martin, Vlastimil
+    frontend: Miloš
+    spojka: Stanislav
