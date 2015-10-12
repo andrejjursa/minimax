@@ -33,6 +33,6 @@ Pokračovanie vo vývoji v zmysle zadania
     
 Rozdelenie úloh
 ---------------
-    backend: Martin, Vlastimil
-    frontend: Miloš
-    spojka: Stanislav
+    backend: Polakovič, Starec
+    frontend: Maco, Krajčovič
+    spojka: Krajčovič
