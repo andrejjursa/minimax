@@ -1,0 +1,13 @@
+Use-case diagram ilustruje jednotlivé prípady pouitia systému z poh¾adu jeho pouívate¾ov. Ilustruje Prednášajúceho ako hlavného riadiaceho na aplikáciu a Študenta, ktorı je len pozorovate¾. Use-case diagram ve¾mi pekne predstavuje vzah medzi Actormi (Študent a Prednášajúci v tomto prípade) a use-case (Vıber hry, Vıber farebnej témy, ...) v systéme.
+
+Pouívate¾ - Profesor, študent ... ovláda aplikáciu -> hrá proti poèítaèu alebo necháva hra poèítaè sám so sebou, môe si vyiada ïalší krok, môe pozastavi vıpoèet alebo
+Plocha GUI - prijíma vstupy od pouívate¾a a posiela ich do Eventeru, prijíma vstupy z rôznych komponentov na vykreslenie
+Strom - súèas GUI, ilustruje algoritmus ... prijíma dáta z Eventeru a necháva ich vykresli do Plochy GUI
+Hra - súèas GUI, ilustruje aktuálny stav hry ... prijíma dáta z Eventeru a necháva ich vykresli do Plochy GUI
+Algoritmus - samotná "skrytá" èas kódu ... dostane impulz z Eventera, spracúva dáta a posiela ich spä
+Eventer - najdôleitejšia skrytá komunikaèná entita ... spracúva eventy do uívate¾a a algoritmu, pod¾a nich komunikuje s algoritmom, ovládaním plochy alebo vykreslenia Hry a Stromu
+
+V aplikácii rozoznávame dva hlavné stavy: nastavanie hry a samotná hra.
+Pri štarte aplikácie sa automaticky dostávame do nastavení hry - tam pomocou zobrazenıch tém a zobrazenıch hier vieme tlaèidlom štart spusti druhı stav, teda Hru. Z hry sa kedyko¾vek môeme vráti naspä do nastavení. V hre rozoznávame ïalšie stavy. Pomocou spacebaru vieme prepína medzi automatickım (rozumne èasovanım) chodom hry. Pomocou tabulátora vieme graficky prioritizova scénu - hra, strom, oboje. Šípkami v¾avo a vpravo si vieme vynúti predchádzajúci respektíve ïalší krok, pokia¾ nie je aplikácia automaticky èasovaná. Splnením tejto podmienky vieme aj "hra" proti poèítaèu kliknutím na hernú plochu. Tım si automaticky vyiadíme ïalší krok (odpoveï) poèítaèa. Rozohranú hru vieme kedyko¾vek resetova, teda vráti do pôvodného stavu.
+
+V programe poznáme dve hlavné scény: scéna nastavení a scéna hry. Scéna nastavení vyzera vdy rovnako. Obsahuje vıber hry a vybranie grafickej témy, ktorá slúi pre adaptovanie sa publiku, teda poväèšine študentom. Z tejto scény sa pomocou tlaèidla štart vieme prepnú do druhej scény - hry. V hre poznáme tri "podscény", na ktorıch je vykreslené presne to isté, avšak na kadej sa kladie dôraz na nieèo iné. Pri prechode z nastavení sa dostaneme na "vyrovnanú scénu". Tam nájdeme na ¾avej strane strom a na pravej strane hru s ovládaním. Obe strany sú si rovné. Tabulátorom sa môeme prepnú do ïalšej podscény, kde raz dostaneme scénu s dôrazom na strom alebo sna hru. Z tıchto podscén sa dá potom dosta spä na vyrovnanú scénu. Z hry sa kedyko¾vek vieme prepnú na scénu nastavenia.
