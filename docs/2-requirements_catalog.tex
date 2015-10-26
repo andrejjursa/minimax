@@ -1,0 +1,126 @@
+% Preamble
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[slovak]{babel}
+\usepackage[hidelinks]{hyperref}
+
+\title{KATALÓG POŽIADAVIEK: vizualizácia algoritmu Minimax}
+\author{Stanislav Krajčovič \and Martin Maco \and Miloš Polakovič \and Vlastimil Starec}
+
+\begin{document}
+% Page title
+\begin{titlepage}
+	\centering
+	\includegraphics[width=20em]{images/fmfi_uk.jpg}
+	\par\vspace{0.5cm}
+	{\scshape\Large FAKULTA MATEMATIKY, FYZIKY A INFORMATIKY UNIVERZITA KOMENSKÉHO}
+	\par\vspace{2cm}
+	{\LARGE \textbf{KATALÓG POŽIADAVIEK}}
+	\par\vspace{0.2cm}
+	{\Large vizualizácia algoritmu \textbf{Minimax}}
+	\par\vfill
+	Stanislav Krajčovič \quad Martin Maco \quad Miloš Polakovič \quad Vlastimil Starec
+	\par\vspace{0.2cm}
+	\textbf{zimný semester 2015/2016}
+\end{titlepage}
+
+% Table of contents
+\tableofcontents
+\newpage
+
+% Content
+\section{Úvod}\label{sec:introduction}
+\subsection{Účel tohto dokumentu}\label{subsec:aim}
+Tento dokument slúži ako východiskový bod pre vývoj aplikácie \emph{minimax.py}. Špecifikuje konkrétne požiadavky zadávateľa na objednanú aplikáciu, rovnako ako kľúčové body potrebné pre proces vývoja. Môže byť použitý pri priebežnom rovnako ako aj finálnom posudzovaní zhody vyvíjanej aplikácie so špecifikáciou zadávateľa, no nemá nemá právny význam (nejedná sa o záväznú zmluvu medzi zadávateľom a vývojárskym tímom).
+
+\subsection{Rozsah produktu / aplikácie}\label{subsec:scope}
+Výsledným produktom projektu bude GUI aplikácia pre PC, ktorá bude slúžiť na vizualizáciu a interakciu s algoritmom pre umelú inteligenciu známym pod názvom \emph{Minimax} pre účely vzdelávania.
+
+\subsection{Slovník pojmov, skratky}\label{subsec:dict}
+\begin{tabular}{|l|p{24em}|}
+	\hline
+	\emph{Minimax, MinMax} alebo \emph{MM} &
+	Algoritmus používaný najmä pri strategických hrách dvoch hráčov\\
+	\hline
+	\emph{minimax.py} &
+	Pracovný názov vyvíjanej aplikácie. S veľkou pravdepodobnosťou bude mať výsledný softvér odlišný názov. \\
+	\hline
+	\emph{GUI} &
+	\emph{Graphical user interface}; grafické užívateľské rozhranie. \\
+	\hline
+	\emph{PC} &
+	Osobný počítač (desktop alebo laptop) \\
+	\hline
+	\emph{farebná schéma} &
+	Kombinácia viacerých farieb použitých na vytvorenie grafického výstupu \\ 
+	\hline
+	\emph{unit test} & 
+	Druh automatizovaného softvérového testu, ktorý testuje \emph{units} – najmenšie testovateľné jednotky zdrojového kódu (v \emph{OOP} sú to najčastejšie buď celé rozhrania tried alebo ich jednotlivé funkcie, resp. \emph{metódy}) \\
+	\hline
+\end{tabular}
+
+\subsection{Referencie}\label{subsec:refs}
+Oboznámiť sa s algoritmom \emph{Minimax} v anglickom jazyku je možné na adrese \url{http://wki.pe/Minimax}.
+Dokumentácie zvolených programovacích prostredí (\emph{Python} a \emph{Cython}) sú dostupné na adresách \url{https://docs.python.org/} a \url{http://docs.cython.org/}, obe tiež v anglickom jazyku.
+Licencia \emph{GNU GPLv3} je v anglickom znení voľne dostupná na adrese \url{http://www.gnu.org/licenses/gpl-3.0.en.html}. Jej preklad do slovenského jazyka je dostupný na adrese \url{http://www.gpl.sk/v3/}.
+
+\subsection{Sumár zvyšku dokumentu}\label{subsec:summary}
+Sekcia \nameref{sec:general} načrtá perspektívu aplikácie, sumarizuje jej základnú funkcionalitu, charakterizuje rôzne druhy jej cieľových užívateľov a pojednáva o všeobecných obmedzeniach.
+Sekcia \nameref{sec:specific} analyzuje špecifické funkčné požiadavky kladené na vývojárov aplikácie.
+\newpage
+
+\section{Všeobecný opis}\label{sec:general}
+\subsection{Perspektíva produktu}
+Určením aplikácie \emph{minimax.py} je byť používaná na vzdelávacie účely. Môže byť použitá ako učebná pomôcka na prednáškach, rovnako ako interaktívny softvérový študijný materiál pre študentov.
+
+\subsection{Funkcie produktu}\label{subsec:functionality}
+Grafickým výstupom aplikácie bude vždy vizualizácia momentálneho stavu zvolenej hry a interného stavu algoritmu. Medzi stavmi bude možné v chronologickom poradí prechádzať užívateľskými vstupmi.
+V iných slovách, algoritmus bude v aplikácii možné graficky príjemným spôsobom krokovať.
+
+\subsection{Užívateľské charakteristiky}\label{subsec:targetuser}
+Sú dva druhy používateľov, pre ktorých je aplikácia určená: \\
+\begin{tabular}{|l|p{32em}|}
+	\hline
+	\textbf{Rola} &
+	\textbf{Popis} \\
+	\hline
+	Prednášajúci &
+	Osoba ktorá problematike už rozumie a používa aplikáciu na vysvetlenie fungovania algoritmu svojim študentom. \\ 
+	\hline
+	Študent &
+	Osoba bez predošlej znalosti problematiky, ktorá buď používa grafické rozhranie aplikácie na pozorovanie a skúmanie stratégie algoritmu, alebo študuje aplikáciu samotnú prostredníctvom jej dokumentácie, zdrojového kódu a existujúcich automatizovaných testov. \\
+	\hline
+\end{tabular}
+
+\subsection{Všeobecné obmedzenia}\label{subsec:constraints}
+Relevantnými softvérovými a hardvérovými obmedzeniami na beh aplikácie z hľadiska užívateľa budú najmä použitý \emph{operačný systém} a \emph{zobrazovacie zariadenie}. Tieto obmedzenia a k nim zvolené prístupy pri vývoji sú popísané v podkapitolách \nameref{subsec:availability} a \nameref{subsec:usability} sekcie \nameref{sec:specific}.\\
+Právne obmedzenia sa aplikujú v zmysle licencie \emph{GNU GPLv3}. V skratke – \emph{minimax.py} je slobodný softvér, a teda je poskytovaný bez obmedzení slobôd spustiť aplikáciu na akýkoľvek účel, študovať ju či ju upravovať, kopírovať alebo vylepšovať. Jedno právne obmedzenie hodné zmienky kladené na distribúciu upravených verzií aplikácie však je, aby tieto tiež boli distribuované ako slobodný softvér.
+
+\subsection{Predpoklady a závislosti}\label{subsec:premise}
+% TODO
+N/A
+\newpage
+
+\section{Špecifické (funkčné) požiadavky}\label{sec:specific}
+\subsection{Dostupnosť}\label{subsec:availability}
+\emph{minimax.py} je aplikácia určená pre vzdelávacie/akademické prostredie, a musí preto byť prístupná každému bez rozdielov. Týmto požiadavkám bol v plánovacej fáze prispôsobený výber softvérovej licencie a voľba použitých programátorských prostriedkov.
+Vo svetle týchto požiadaviek bude výsledná aplikácia distribuovaná pod slobodnou licenciou \emph{GNU GPLv3} vo forme zdrojového kódu a binárnych spustiteľných súborov pre operačný systém Microsoft \emph{Windows}.
+
+\subsection{Použiteľnosť}\label{subsec:usability}
+Grafický výstup aplikácie by mal byť čo najviac univerzálny. Pod týmto sa rozumie to, aby bol použiteľný na čo najširšom spektre výstupných zariadení a svetelných podmienok. Konkrétne musí byť grafický výstup okrem plochých obrazoviek prispôsobený aj premietaniu na plátno v tmavom, alebo naopak presvetlenom prostredí.
+Vzhľadom na tieto požiadavky bude grafické rozhranie aplikácie realizované tak, aby sa responzívne prispôsobovalo rozlíšeniu výstupného zariadenia (resp. veľkosti svojho okna), a to aj za behu aplikácie.
+Rovnako bude obsahovať možnosť za behu meniť konfiguráciu používanej farebnej schémy, a to podľa svetelných podmienok miestnosti, druhu obrazovky, osobného vkusu a/alebo iných preferencií.
+
+\subsection{Korektnosť}\label{subsec:correctness}
+Vzhľadom na svoje určenie pre vzdelávanie musí byť aplikácia korektná v zmysle správnosti implementácie algoritmu a jeho grafickej reprezentácie, t.j. nikdy nemôže spraviť nesprávny krok alebo zobraziť nekorektný výstup.
+Takáto kvalita softvéru sa dá zaručiť iba dôkladným testovaním kódu, a to tiež iba do istej miery. Preto je jedným z hlavných cieľov vývojárov zodpovedných za samotnú implementáciu algoritmu dosiahnuť čo najvyššie pokrytie relevantného kódu unit testami. Okrem toho bude v rôznych fázach vývoja prebiehať funkčné testovanie užívateľských rozhraní externými testermi.
+
+\subsection{Efektivita}\label{subsec:effectivity}
+Aplikácia musí byť efektívna v zmysle časovej a pamäťovej zložitosti. Toto do istej miery súvisí aj s požiadavkami na dostupnosť a použiteľnosť – sub-optimálna efektivita by obmedzovala ako dostupnosť (spodná latka na “najslabší” hardvér by bola o čosi vyššie), tak aj použiteľnosť (dlhší čas odozvy by mohol použiteľnosti uškodiť).
+
+Týmto kritériám bol prispôsobený výber programovacích jazykov. Väčšina aplikácie bude napísaná v silne dynamicky typovanom programovacom jazyku \emph{Python}. Vzhľadom na exponenciálnu časovú zložitosť algoritmu a real-time charakter aplikácie však budú kritické sekcie kódu musieť byť implementované za použitia statických dátových štruktúr a rutín, keďže takýto prístup dokáže byť rádovo rýchlejší než jeho dynamický protipól. Pre tieto sekcie kódu bol zvolený programovací jazyk \emph{Cython}, ktorý zdieľa mnohé z výhod jazykov \emph{C} a \emph{C++}. Takto napísaný kód bude možné elegantne integrovať so zvyškom aplikačného kódu.
+
+
+\end{document}
